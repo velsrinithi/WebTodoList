@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#241044">
+    <meta name="description" content="Focus Fiesta — a vibrant, interactive to-do list with task tracking and celebration effects.">
+    <title>Focus Fiesta — Make It Happen</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="background-art art-one"></div>
+    <div class="background-art art-two"></div>
+    <div class="background-grid"></div>
+
+    <header class="topbar">
+        <a href="#" class="brand" aria-label="Focus Fiesta home">
+            <span class="brand-symbol">F<span>!</span></span>
+            <span class="brand-text">
+                FOCUS FIESTA
+                <small>YOUR DAY. YOUR RULES.</small>
+            </span>
+        </a>
+
+        <nav class="navigation" aria-label="Main navigation">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#tasks-section" class="nav-link">My Tasks</a>
+            <a href="#about" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-status">
+            <span class="status-dot"></span>
+            LET'S GET IT DONE
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-copy">
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    YOUR PERSONAL PRODUCTIVITY PLAYGROUND
+                </div>
+
+                <h1>Make today<br>
+                    <span class="gradient-text">count.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Big dreams, tiny steps, real progress.
+                    Organize your tasks, celebrate your wins,
+                    and make productivity feel good.
+                </p>
+
+                <a href="#tasks-section" class="hero-button">
+                    LET'S GET STARTED
+                    <span aria-hidden="true">↘</span>
+                </a>
+
+                <div class="hero-tags">
+                    <span>✳ STAY FOCUSED</span>
+                    <span>✳ CELEBRATE WINS</span>
+                    <span>✳ KEEP GOING</span>
+                </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="art-orbit orbit-one"></div>
+                <div class="art-orbit orbit-two"></div>
+
+                <div class="floating-card float-card-one">
+                    <span class="floating-emoji">✦</span>
+                    <div>
+                        <strong>Small steps</strong>
+                        <small>BIG RESULTS</small>
+                    </div>
+                </div>
+
+                <div class="hero-number">01</div>
+
+                <div class="hero-tile tile-pink">
+                    <span>DO</span>
+                    <strong>IT.</strong>
+                </div>
+
+                <div class="hero-tile tile-blue">
+                    <span class="tile-spark">✳</span>
+                    <strong>YOUR<br>TIME.</strong>
+                </div>
+
+                <div class="hero-tile tile-yellow">
+                    <span>✦</span>
+                </div>
+
+                <div class="hero-tile tile-purple">
+                    <strong>MAKE<br>IT HAPPEN</strong>
+                    <span>↗</span>
+                </div>
+
+                <div class="floating-card float-card-two">
+                    <span class="success-emoji">✓</span>
+                    <div>
+                        <strong>You're capable.</strong>
+                        <small>ONE TASK AT A TIME</small>
+                    </div>
+                </div>
+
+                <div class="decor-star star-one">✳</div>
+                <div class="decor-star star-two">✦</div>
+                <div class="decor-star star-three">✧</div>
+            </div>
+        </section>
+
+        <!-- TASK MANAGEMENT -->
+        <section class="tasks-section" id="tasks-section">
+            <div class="section-heading">
+                <div>
+                    <div class="section-kicker">
+                        <span>02</span> THE GAME PLAN
+                    </div>
+                    <h2>Today's <span>mission.</span></h2>
+                    <p class="section-description">
+                        Every task you finish is a little victory.
+                    </p>
+                </div>
+
+                <div class="day-stamp">
+                    <span class="stamp-star">✳</span>
+                    <span>
+                        <strong>YOUR DAY</strong>
+                        <small>YOUR PROGRESS</small>
+                    </span>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <div class="stat-card stat-total">
+                    <span class="stat-icon">✳</span>
+                    <span class="stat-label">TOTAL TASKS</span>
+                    <strong id="total-count">0</strong>
+                    <small>ON YOUR LIST</small>
+                </div>
+
+                <div class="stat-card stat-active">
+                    <span class="stat-icon">◷</span>
+                    <span class="stat-label">IN PROGRESS</span>
+                    <strong id="active-count">0</strong>
+                    <small>READY FOR YOU</small>
+                </div>
+
+                <div class="stat-card stat-completed">
+                    <span class="stat-icon">✓</span>
+                    <span class="stat-label">COMPLETED</span>
+                    <strong id="completed-count">0</strong>
+                    <small>WINS COLLECTED</small>
+                </div>
+
+                <div class="stat-card stat-progress">
+                    <div class="progress-top">
+                        <span class="stat-label">MISSION PROGRESS</span>
+                        <span id="progress-value">0%</span>
+                    </div>
+                    <div class="progress-track"
+                         role="progressbar"
+                         aria-label="Task completion progress"
+                         aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0"
+                         id="progress-track">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p id="progress-message">Let's make the first move!</p>
+                    <span class="progress-decoration" aria-hidden="true">↗</span>
+                </div>
+            </div>
+
+            <!-- ADD TASK FORM -->
+            <div class="task-workspace">
+                <div class="workspace-heading">
+                    <div>
+                        <span class="section-kicker">YOUR TASK BOARD</span>
+                        <h3>What's on your mind?</h3>
+                    </div>
+                    <span class="board-badge">✦ LET'S DO THIS</span>
+                </div>
+
+                <form id="task-form" class="task-form">
+                    <label class="sr-only" for="task-input">
+                        Enter a new task
+                    </label>
+
+                    <span class="input-icon" aria-hidden="true">✳</span>
+
+                    <input
+                        id="task-input"
+                        type="text"
+                        placeholder="Add a task, a goal, or a little win..."
+                        maxlength="180"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit" class="add-button">
+                        <span>+</span>
+                        ADD TASK
+                    </button>
+                </form>
+
+                <p id="form-message" class="form-message" aria-live="polite"></p>
+
+                <!-- FILTERS -->
+                <div class="task-toolbar">
+                    <div class="filter-group" aria-label="Filter tasks">
+                        <button type="button"
+                                class="filter-button active"
+                                data-filter="all"
+                                aria-pressed="true">
+                            All <span id="all-count">0</span>
+                        </button>
+
+                        <button type="button"
+                                class="filter-button"
+                                data-filter="active"
+                                aria-pressed="false">
+                            In progress
+                        </button>
+
+                        <button type="button"
+                                class="filter-button"
+                                data-filter="completed"
+                                aria-pressed="false">
+                            Completed
+                        </button>
+                    </div>
+
+                    <button type="button"
+                            id="clear-completed"
+                            class="clear-button"
+                            disabled>
+                        CLEAR COMPLETED ×
+                    </button>
+                </div>
+
+                <!-- DYNAMIC TASK LIST -->
+                <ul id="task-list" class="task-list" aria-label="Task list"></ul>
+
+                <!-- EMPTY STATE -->
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-art" aria-hidden="true">
+                        <span>✳</span>
+                        <span>✦</span>
+                        <span>✓</span>
+                    </div>
+                    <h3>Your next win starts here.</h3>
+                    <p>Add your first task and turn your plans into progress.</p>
+                    <button type="button" id="empty-add-button" class="empty-button">
+                        + CREATE MY FIRST TASK
+                    </button>
+                </div>
+
+                <div class="workspace-footer">
+                    <span><span class="footer-dot"></span> ONE THING AT A TIME.</span>
+                    <span id="save-status">SAVED LOCALLY</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOTIVATION SECTION -->
+        <section class="motivation" id="about">
+            <div class="motivation-symbol">✳</div>
+            <div class="motivation-copy">
+                <span>YOUR REMINDER</span>
+                <h2>Progress over perfection.</h2>
+                <p>You don't have to do it all at once. Just start.</p>
+            </div>
+            <div class="motivation-decoration" aria-hidden="true">
+                KEEP GOING ↗
+            </div>
+        </section>
+
+        <footer class="footer">
+            <span>FOCUS FIESTA © 2026</span>
+            <span>MADE FOR YOUR NEXT BIG WIN.</span>
+            <a href="#home">BACK TO TOP ↑</a>
+        </footer>
+    </main>
+
+    <!-- CELEBRATION OVERLAY -->
+    <div id="celebration"
+         class="celebration"
+         aria-hidden="true"
+         role="presentation">
+        <div class="celebration-glow"></div>
+        <div class="celebration-content">
+            <div class="celebration-spark">✳ ✦ ✳</div>
+            <div class="celebration-trophy" aria-hidden="true">🏆</div>
+            <p class="celebration-kicker">VICTORY UNLOCKED</p>
+            <h2 id="celebration-title">Look at you go!</h2>
+            <p id="celebration-message">
+                Another task down. Keep that energy!
+            </p>
+            <button type="button" id="celebration-close">
+                AWESOME! LET'S GO ✦
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas draws the celebration confetti. -->
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+</body>
+</html>
